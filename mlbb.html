@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Legends Top-Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mlbb.css">
+</head>
+<body>
+    
+    <!-- Back Button -->
+  <div class="topbar">
+    <button class="back-btn" onclick="location.href='index.html'">&larr;</button>
+    <h1>Mobile Legends</h1>
+    </div>
+
+  <!-- Game Header -->
+  <div class="game-header">
+    <img src="Images/mlbb-saint seiya event.jpg" alt="MLBB Banner" class="game-banner">
+    <div class="game-info">
+      <h2>Mobile Legends: Bang Bang</h2>
+      <p>Top-up diamonds instantly with your Player ID & Zone ID</p>
+    </div>
+  </div>
+
+
+  <!-- Player Input Section -->
+  <div class="input-section">
+  <div class="label-row">
+    <label for="playerId">Player ID</label>
+    <button class="info-btn" onclick="showGuide()">?</button>
+  </div>
+  <input type="number" id="playerId" placeholder="Enter your ID" class="input">
+  <small id="error-player" class="error-text"></small>
+
+  <label for="serverId">Server ID</label>
+  <input type="number" id="serverId" placeholder="Enter your Zone ID" class="input">
+  <small id="error-server" class="error-text"></small>
+
+  <label for="ign">In-Game Name</label>
+  <input type="text" id="ign" name="ign" placeholder="Enter IGN (optional)" class="input">
+</div>
+
+<!-- Guide Image Modal -->
+<div class="modal-overlay" onclick="hideGuide()" id="guideModal">
+  <img src="Images/help-id.png" alt="Guide" class="guide-image">
+</div>
+
+  <!-- Diamond Package Selection -->
+  <div class="diamond-card-grid">
+      <small id="error-diamond" class="error-text"></small>
+      
+  <div class="diamond-card" data-amount="5" data-price="14">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/5dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">5 Diamonds</div>
+      <div class="diamond-bonus">(5 + 0 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹15</span>
+        <span class="new-price">₹14</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="11" data-price="20">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/11to14dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">11 Diamonds</div>
+      <div class="diamond-bonus">(10 + 1 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹22</span>
+        <span class="new-price">₹20</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="14" data-price="26">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/11to14dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">14 Diamonds</div>
+      <div class="diamond-bonus">(12 + 2 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹30</span>
+        <span class="new-price">₹26</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="22" data-price="35">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">22 Diamonds</div>
+      <div class="diamond-bonus">(18 + 4 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹40</span>
+        <span class="new-price">₹35</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="28" data-price="50">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">28 Diamonds</div>
+      <div class="diamond-bonus">(23 + 5 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹55</span>
+        <span class="new-price">₹50</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="33" data-price="60">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">33 Diamonds</div>
+      <div class="diamond-bonus">(27 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹65</span>
+        <span class="new-price">₹60</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="42" data-price="75">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">42 Diamonds</div>
+      <div class="diamond-bonus">(36 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹80</span>
+        <span class="new-price">₹75</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="55" data-price="82">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">55 Diamonds</div>
+      <div class="diamond-bonus">(50 + 5 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹88</span>
+        <span class="new-price">₹82</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="56" data-price="90">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/22to56dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">56 Diamonds</div>
+      <div class="diamond-bonus">(50 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹95</span>
+        <span class="new-price">₹90</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="70" data-price="115">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/70to86dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">70 Diamonds</div>
+      <div class="diamond-bonus">(65 + 5 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹120</span>
+        <span class="new-price">₹115</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="86" data-price="125">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/70to86dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">86 Diamonds</div>
+      <div class="diamond-bonus">(80 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹130</span>
+        <span class="new-price">₹125</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="Weekly" data-price="140">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/weeklypass.jpg" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">Weekly Pass</div>
+      <div class="diamond-bonus">(80 + 140 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹150</span>
+        <span class="new-price">₹140</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="165" data-price="215">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/165to175dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">165 Diamonds</div>
+      <div class="diamond-bonus">(160 + 5 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹230</span>
+        <span class="new-price">₹215</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="175" data-price="230">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/165to175dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">175 Diamonds</div>
+      <div class="diamond-bonus">(169 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹240</span>
+        <span class="new-price">₹230</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="Starlight" data-price="250">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/starlight.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">Normal Starlight (86 + Weekly)</div>
+      <div class="diamond-bonus">(86 + 220 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹265</span>
+        <span class="new-price">₹250</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="257" data-price="345">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/257to275dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">257 Diamonds</div>
+      <div class="diamond-bonus">(250 + 7 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹355</span>
+        <span class="new-price">₹345</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="275" data-price="355">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/257to275dias.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">275 Diamonds</div>
+      <div class="diamond-bonus">(270 + 5 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹365</span>
+        <span class="new-price">₹355</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="344" data-price="450">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">344 Diamonds</div>
+      <div class="diamond-bonus">(340 + 4 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹460</span>
+        <span class="new-price">₹450</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="429" data-price="550">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">429 Diamonds</div>
+      <div class="diamond-bonus">(420 + 9 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹575</span>
+        <span class="new-price">₹550</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="514" data-price="650">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">514 Diamonds</div>
+      <div class="diamond-bonus">(500 + 14 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹670</span>
+        <span class="new-price">₹650</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="565" data-price="705">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">565 Diamonds</div>
+      <div class="diamond-bonus">(5 + 0 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹720</span>
+        <span class="new-price">₹705</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="Twilight Pass" data-price="730">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">Twilight Pass</div>
+      <div class="diamond-bonus"></div>
+      <div class="diamond-prices">
+        <span class="old-price">₹750</span>
+        <span class="new-price">₹730</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="600" data-price="750">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">600 Diamonds</div>
+      <div class="diamond-bonus">(548 + 52 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹770</span>
+        <span class="new-price">₹750</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="706" data-price="875">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">706 Diamonds</div>
+      <div class="diamond-bonus">(625 + 81 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹900</span>
+        <span class="new-price">₹875</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="792" data-price="985">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">792 Diamonds</div>
+      <div class="diamond-bonus">(703 + 89 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1000</span>
+        <span class="new-price">₹985</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="878" data-price="1095">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">878 Diamonds</div>
+      <div class="diamond-bonus">(781 + 97 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1110</span>
+        <span class="new-price">₹1095</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="963" data-price="1200">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">963 Diamonds</div>
+      <div class="diamond-bonus">(859 + 104 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1250</span>
+        <span class="new-price">₹1200</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1050" data-price="1320">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1050 Diamonds</div>
+      <div class="diamond-bonus">(937 + 113 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1350</span>
+        <span class="new-price">₹1320</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1135" data-price="1420">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1135 Diamonds</div>
+      <div class="diamond-bonus">(1015 + 120 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1450</span>
+        <span class="new-price">₹1420</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1412" data-price="1740">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1412 Diamonds</div>
+      <div class="diamond-bonus">(1250 + 162 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1770</span>
+        <span class="new-price">₹1740</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1669" data-price="2070">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1669 Diamonds</div>
+      <div class="diamond-bonus">(1484 + 185 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹2100</span>
+        <span class="new-price">₹2070</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="2195" data-price="2540">
+    <span class="discount-label">99%</span>
+    <img src="Diamonds/344toinfinite.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">2195 Diamonds</div>
+      <div class="diamond-bonus">(1860 + 335 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹2580</span>
+        <span class="new-price">₹2540</span>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+  <!-- Payment Button -->
+  <div class="pay-button">
+    <button id="proceedBtn">Continue to Payment</button>
+  </div>
+  
+  <!-- Confirmation Popup -->
+<div class="confirm-popup-overlay" id="confirmPopup">
+  <div class="confirm-popup">
+    <h3>Confirm Your Order</h3>
+    <p><strong>Player ID:</strong> <span id="popup-playerId"></span></p>
+    <p><strong>Server ID:</strong> <span id="popup-serverId"></span></p>
+    <p><strong>In-Game Name:</strong> <span id="popup-ign"></span></p>
+    <p><strong>Diamond:</strong> <span id="popup-diamond"></span></p>
+    <p><strong>Price:</strong> ₹<span id="popup-price"></span></p>
+
+    <div class="popup-buttons">
+      <button class="cancel" onclick="hideConfirm()">Cancel</button>
+      <button class="confirm" onclick="confirmOrder()">OK</button>
+    </div>
+  </div>
+</div>
+
+  <script src="mlbb.js">></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  background: linear-gradient(to bottom, #6ec6ff, #e3f2fd);
+  padding: 30px 20px 20px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.notif-img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+p {
+  margin: 4px 0 0;
+  color: #1114219e;
+  font-size: 14px;
+  font-style: italic;
+}
+
+#notificationList {
+  padding: 20px;
+}
+
+.notification-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.notif-text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.notif-time {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 6px;
+}
+
+.more-link {
+  color: #007bff;
+  font-size: 0.85rem;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.options {
+  margin-top: 12px;
+  display: none;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.notification-item.show .options {
+  display: flex;
+}
+
+.options button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+#customAlert {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+#customAlert.show {
+  opacity: 1;
+}
+
+.custom-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 360px;
+  z-index: 9999;
+  display: none;
+}
+
+.custom-popup.show {
+  display: block;
+}
+
+#promptTextarea,
+#unlockPassword {
+  width: 92%;
+  max-width: 360px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+#promptTextarea {
+    padding-bottom: 300px;
+}
+
+.prompt-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prompt-actions button {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#promptOk,
+#unlockOk {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#promptCancel,
+#unlockCancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.prompt-help {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: black;
+  text-align: center;
+}
+
+.prompt-help a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+  background: #00c853;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.comment-section {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}
+
+.comment {
+  background: #f8f8f8;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  
+    /* ✅ THIS IS THE FIX */
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+}
+
+.comment-input {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.notif-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.notif-actions button {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+button {
+    width: 30%;
+    max-width: 50%;
+}
+
+h3 {
+    text-align: center;
+}

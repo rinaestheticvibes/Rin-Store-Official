@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification - Rin Store Official</title>
+  <link rel="stylesheet" href="notification.css" />
+</head>
+<body>
+  <div class="header">
+    <img src="Images/notification.jpg" alt="notification" class="notif-img" />
+    <h1>NOTIFICATION</h1>
+    <p>From Rin Store Official</p>
+  </div>
+
+  <div id="notificationList"></div>
+
+  <button id="fab" class="fab">+</button>
+
+  <div id="customAlert"></div>
+
+  <!-- Add Notification Prompt -->
+  <div id="customPrompt" class="custom-popup">
+    <textarea id="promptTextarea" placeholder="Write new notification"></textarea>
+    <div class="prompt-actions">
+      <button id="promptCancel">Cancel</button>
+      <button id="promptOk">OK</button>
+    </div>
+  </div>
+
+  <!-- Password Lock Prompt -->
+  <div id="unlockPrompt" class="custom-popup">
+    <h3>Enter Password</h3>
+    <input type="password" id="unlockPassword" placeholder="Enter password..." />
+    <div class="prompt-actions">
+      <button id="unlockCancel">Cancel</button>
+      <button id="unlockOk">Ok</button>
+    </div>
+    <span class="prompt-help">
+      Don’t know password? <a href="https:wa.me/918787550589">Contact Store Owner</a>
+    </span>
+  </div>
+
+  <script src="notification.js"></script>
+</body>
+</html>

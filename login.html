@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Not Available</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .emoji {
+      font-size: 50px;
+      animation: float 1.5s infinite ease-in-out;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 16px 0 8px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4747;
+      color: white;
+      text-decoration: none;
+      border-radius: 24px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #e23c3c;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">🚫😔</div>
+  <h1>Login Not Available</h1>
+  <p>This feature is not ready yet. Please try again later.</p>
+  <a href="index.html" class="button">← Back to Home</a>
+
+</body>
+</html>

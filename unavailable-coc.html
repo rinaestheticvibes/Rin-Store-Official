@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Not Available | Rin Store</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: 'Segoe UI', sans-serif;
+      color: black;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .emoji {
+      font-size: 64px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 20px 0 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #000000b4;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    a.button {
+      text-decoration: none;
+      background: #ff4444;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #e33b3b;
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: 15px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 22px; }
+      .emoji { font-size: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">🚫</div>
+  <h1>Class of Clans Top-Up Not Available</h1>
+  <p>This service is currently unavailable. We’re working to bring it soon.<br>Please check back later or contact us if you have questions.</p>
+
+  <a href="index.html" class="button">🔙 Back to Home</a>
+
+  <div class="footer-note">Rin Store Official</div>
+
+</body>
+</html>

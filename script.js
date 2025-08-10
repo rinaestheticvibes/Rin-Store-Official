@@ -50,3 +50,52 @@ setInterval(() => {
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }, 4000); // 4 seconds
+
+//First Popup section
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("socialPopup");
+  const closeBtn = document.getElementById("closePopup");
+
+  // Once per day key
+  const KEY = "rin_store_popup_date";
+
+  function todayStr() {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function shouldShow() {
+    // Once per day - DISABLED for editing
+    // const lastShown = localStorage.getItem(KEY);
+    // return lastShown !== todayStr();
+    return true; // Always show while editing
+  }
+
+  function markShown() {
+    localStorage.setItem(KEY, todayStr());
+  }
+
+  if (shouldShow()) {
+    popup.classList.add("active");
+    popup.setAttribute("aria-hidden", "false");
+  }
+
+  closeBtn.addEventListener("click", () => {
+  // Remove focus first
+  closeBtn.blur();
+
+  popup.classList.remove("active");
+  popup.setAttribute("aria-hidden", "true");
+  markShown();
+});
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    // Remove focus from anything inside
+    document.activeElement.blur();
+
+    popup.classList.remove("active");
+    popup.setAttribute("aria-hidden", "true");
+    markShown();
+  }
+});
+});

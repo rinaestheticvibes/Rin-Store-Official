@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Options - Rin Store Official</title>
+<style>
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #111;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #222;
+  }
+
+  .menu-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .menu-list li {
+    margin: 14px 0;
+  }
+
+  .menu-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* soft black border */
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 100%;
+    animation: moveGradient 12s linear infinite;
+    transition: transform 0.2s ease;
+  }
+
+  .menu-list a::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+  }
+
+  .menu-list a:hover::after {
+    left: 125%;
+  }
+
+  .menu-list a:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .menu-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .menu-arrow {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  /* Unique gradients for each button */
+  .grad1 { background: linear-gradient(270deg, #4facfe, #00f2fe, #4facfe); }
+  .grad2 { background: linear-gradient(270deg, #f093fb, #f5576c, #f093fb); }
+  .grad3 { background: linear-gradient(270deg, #43e97b, #38f9d7, #43e97b); }
+  .grad4 { background: linear-gradient(270deg, #fa709a, #fee140, #fa709a); }
+  .grad5 { background: linear-gradient(270deg, #30cfd0, #330867, #30cfd0); }
+  .grad6 { background: linear-gradient(270deg, #f7971e, #ffd200, #f7971e); }
+  .grad7 { background: linear-gradient(270deg, #c471f5, #fa71cd, #c471f5); }
+  .grad8 { background: linear-gradient(270deg, #f47b9d, #8ec5fc, #f47b9d); } /* improved gradient */
+  .grad9 { background: linear-gradient(270deg, #f9d423, #e65c00, #f9d423); } /* improved gradient */
+
+  @keyframes moveGradient {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  h1 span {
+      display: grid;
+      align-item: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header style="background: linear-gradient(270deg, #4facfe, #43e97b); padding: 30px 20px; border-radius: 12px; text-align:center; margin-bottom:20px;">
+  <h1 style="margin:0; font-size:2rem; color:#fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Welcome to <span>Rin Store Official</span></h1>
+  <p style="margin-top:6px; font-size:0.95rem; color:#f0f0f0;">Fast and secure gaming top-ups. Limited daily stock. Your trusted in-game store.</p>
+</header>
+  <ul class="menu-list">
+    <li><a class="grad1" href="instructions.html"><span class="menu-number">1</span> Instructions <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad2" href="support.html"><span class="menu-number">2</span> Help & Support <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad3" href="privacy.html"><span class="menu-number">3</span> Privacy & Policy <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad4" href="terms.html"><span class="menu-number">4</span> Terms & Conditions <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad5" href="instant.html"><span class="menu-number">5</span> Instant Delivery <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad6" href="refund.html"><span class="menu-number">6</span> Refund Policy <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad7" href="reseller.html"><span class="menu-number">7</span> Reseller Program <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad8" href="faq.html"><span class="menu-number">8</span> Frequently Asked Questions <span class="menu-arrow">&gt;</span></a></li>
+    <li><a class="grad9" href="about.html"><span class="menu-number">9</span> About Us <span class="menu-arrow">&gt;</span></a></li>
+  </ul>
+</div>
+
+<script>
+  // Change text color based on perceived brightness of gradient
+  const buttons = document.querySelectorAll('.menu-list a');
+
+  function getTextColor(rgb) {
+    const [r,g,b] = rgb;
+    const yiq = (r*299 + g*587 + b*114)/1000;
+    return yiq >= 128 ? '#111' : '#fff';
+  }
+
+  function setButtonTextColors() {
+    buttons.forEach(btn => {
+      const style = getComputedStyle(btn);
+      const bg = style.backgroundImage;
+      const match = bg.match(/#([0-9a-f]{6})/i);
+      if(match) {
+        const hex = match[0];
+        const r = parseInt(hex.substr(1,2),16);
+        const g = parseInt(hex.substr(3,2),16);
+        const b = parseInt(hex.substr(5,2),16);
+        btn.style.color = getTextColor([r,g,b]);
+      }
+    });
+  }
+
+  setButtonTextColors();
+  setInterval(setButtonTextColors, 1000);
+</script>
+<footer style="background: linear-gradient(270deg, #43e97b, #4facfe); padding:20px; margin-top:30px; border-radius:12px; text-align:center; color:#fff; font-size:0.85rem;">
+  <p style="margin:0 0 6px 0;">
+    <a href="home.html" style="color:#fff; text-decoration:none; margin:0 6px;">Home</a>|
+    <a href="contact.html" style="color:#fff; text-decoration:none; margin:0 6px;">Contact</a>|
+    <a href="terms.html" style="color:#fff; text-decoration:none; margin:0 6px;">Terms</a>|
+    <a href="privacy.html" style="color:#fff; text-decoration:none; margin:0 6px;">Privacy</a>
+  </p>
+  <p style="margin:0;">© 2025 Rin Store Official – Your reliable gaming top-up store</p>
+</footer>
+</body>
+</html>

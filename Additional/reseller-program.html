@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reseller Program - Rin Store Official</title>
+  <style>
+    :root {
+      --bg:#f9fafb;
+      --card:#ffffff;
+      --brand:#3b82f6;
+      --brand2:#2563eb;
+      --text:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --shadow:0 8px 20px rgba(0,0,0,0.05);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family: "Segoe UI", system-ui, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      padding:18px;
+    }
+    .wrap { max-width:880px; margin:0 auto; }
+    header { text-align:center; margin:8px 0 22px; }
+    h1 { font-size:clamp(1.7rem,2.5vw+1rem,2.3rem); margin-bottom:6px; }
+    .sub { color:var(--muted); font-size:.95rem; }
+
+    .card {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:20px;
+      margin:14px 0;
+      box-shadow:var(--shadow);
+    }
+    h2 { font-size:1.2rem; margin:0 0 10px; color:var(--brand2); }
+    p { margin:8px 0; }
+    ul { margin:8px 0 8px 20px; }
+    li { margin:6px 0; }
+
+    .steps {
+      counter-reset: step;
+      list-style:none;
+      padding-left:0;
+    }
+    .steps li {
+      counter-increment: step;
+      margin:10px 0;
+      padding-left:42px;
+      position:relative;
+    }
+    .steps li::before {
+      content: counter(step);
+      position:absolute; left:0; top:0;
+      width:28px; height:28px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg,var(--brand),var(--brand2));
+      color:#fff;
+      border-radius:8px;
+      font-weight:700;
+      box-shadow:0 4px 10px rgba(37,99,235,.25);
+    }
+
+    .btn {
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      font-weight:600;
+      text-decoration:none;
+      border-radius:10px;
+      background:linear-gradient(145deg,var(--brand),var(--brand2));
+      color:#fff;
+      transition:.2s ease;
+    }
+    .btn:hover { opacity:.9; }
+
+    footer {
+      text-align:center;
+      color:var(--muted);
+      font-size:.9rem;
+      margin:28px 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Reseller Program</h1>
+      <div class="sub">Partner with Rin Store Official and start earning by selling gaming top-ups</div>
+    </header>
+
+    <div class="card">
+      <h2>Overview</h2>
+      <p>The Rin Store Official Reseller Program allows you to sell Mobile Legends, PUBG, and other game top-ups to your own customers with wholesale rates. As a reseller, you earn margins on every sale while we handle the delivery and backend.</p>
+    </div>
+
+    <div class="card">
+      <h2>Benefits</h2>
+      <ul>
+        <li>✔ Wholesale prices with higher profit margins</li>
+        <li>✔ Instant or fast delivery system</li>
+        <li>✔ Access to new games as we expand</li>
+        <li>✔ Dedicated support team</li>
+        <li>✔ Zero setup fees</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Requirements</h2>
+      <ul>
+        <li>Minimum monthly sales commitment (e.g., 1000 Diamonds or more)</li>
+        <li>Active WhatsApp or Telegram for support</li>
+        <li>Valid UPI or bank account for payments</li>
+        <li>Compliance with our refund and delivery policies</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>How to Apply</h2>
+      <ol class="steps">
+        <li>Contact us on WhatsApp or Email with your interest.</li>
+        <li>We will provide wholesale rate details and terms.</li>
+        <li>Complete your reseller onboarding form.</li>
+        <li>Start reselling instantly after approval.</li>
+      </ol>
+      <a href="https://wa.me/918787550589" class="btn" target="_blank">📲 Apply via WhatsApp</a>
+    </div>
+
+    <footer>
+      © 2025 Rin Store Official • Reseller Program
+    </footer>
+  </div>
+</body>
+</html>

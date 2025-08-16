@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Refund Policy - Rin Store Official</title>
+  <style>
+    :root{
+      --bg:#f7f7f9;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#566173;
+      --brand:#3b82f6;
+      --brand-2:#2563eb;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --border:#e5e7eb;
+      --shadow:0 6px 20px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.7;
+      padding:20px;
+    }
+    .wrap{
+      max-width:860px;
+      margin:0 auto;
+    }
+    header{
+      text-align:center;
+      margin:8px 0 18px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(1.6rem, 2.4vw + 1rem, 2.2rem);
+      letter-spacing:.2px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin:14px 0;
+    }
+    h2{
+      font-size:1.15rem;
+      margin:0 0 8px;
+    }
+    p{margin:10px 0}
+    ul{margin:8px 0 8px 18px}
+    li{margin:6px 0}
+
+    .notice{
+      border-left:5px solid var(--bad);
+      background:#fff5f5;
+      color:#8b0000;
+      padding:14px;
+      border-radius:12px;
+      font-weight:600;
+    }
+    .highlight{
+      background:#f1f5ff;
+      border:1px dashed #c7d2fe;
+      padding:12px;
+      border-radius:12px;
+      color:#1e3a8a;
+    }
+    .steps{
+      counter-reset: step;
+      list-style: none;
+      padding-left:0;
+    }
+    .steps li{
+      counter-increment: step;
+      margin:10px 0;
+      padding-left:42px;
+      position:relative;
+    }
+    .steps li::before{
+      content: counter(step);
+      position:absolute; left:0; top:0;
+      width:28px; height:28px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg, var(--brand), var(--brand-2));
+      color:#fff; border-radius:8px;
+      font-weight:700;
+      box-shadow:0 4px 10px rgba(37,99,235,.25);
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:720px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    .contact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:600;
+      box-shadow:var(--shadow);
+      transition:.2s transform ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-wa{background:#25D366}
+    .btn-mail{background:#111827}
+    .muted{color:var(--muted); font-size:.92rem}
+    footer{margin:24px 0 8px; text-align:center; color:var(--muted); font-size:.9rem}
+    .tag{
+      display:inline-block;
+      padding:2px 8px;
+      background:#ecfeff;
+      color:#155e75;
+      border:1px solid #a5f3fc;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:600;
+      margin-left:6px;
+      vertical-align:middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Refund Policy <span class="tag">Rin Store Official</span></h1>
+      <div class="sub">Last updated: 2025-01-</div>
+    </header>
+
+    <div class="card notice">
+      🚫 <b>No refund for incorrect details entered by the customer.</b><br>
+      If a top-up is delivered to the <u>wrong Player ID / Zone (Server) ID</u> because the details were entered incorrectly during checkout, the order is considered successfully delivered and is <b>not eligible for refund or replacement</b>.
+    </div>
+
+    <div class="card">
+      <h2>Overview</h2>
+      <p>Digital goods (in-game currency, passes, vouchers) are delivered electronically and may be consumed instantly in the target game account. To protect customers and prevent abuse, we apply a strict refund policy aligned with digital-goods best practices.</p>
+      <p class="highlight"><b>Tip:</b> Always double-check your <b>Player ID</b> and <b>Zone/Server ID</b> before paying. If you’re unsure, contact support and we’ll help you verify.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Refunds are eligible when</h2>
+        <ul>
+          <li>You made a payment, but <b>no delivery</b> was made within the stated time and it’s confirmed on our side.</li>
+          <li>We charged you <b>twice</b> for the same order.</li>
+          <li>The transaction was <b>charged but failed</b> on our provider and we cannot fulfill it.</li>
+          <li>We delivered a <b>different product</b> than what you ordered (our mistake).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Refunds are <u>not</u> eligible when</h2>
+        <ul>
+          <li>The <b>Player ID or Zone/Server ID was entered incorrectly</b> by you (wrong delivery).</li>
+          <li>The order was <b>already delivered</b> to the game account.</li>
+          <li>You changed your mind after successful delivery.</li>
+          <li>Promotional/discounted items where terms state “non-refundable”.</li>
+          <li>Suspicious, fraudulent or chargeback-related activity is detected.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Cancellation</h2>
+      <ul>
+        <li><b>Before payment:</b> You can cancel anytime.</li>
+        <li><b>After payment but before processing:</b> Contact us immediately; if we haven’t started processing, we will cancel and refund.</li>
+        <li><b>After processing started / delivered:</b> Cancellation is not possible.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>How to request a refund</h2>
+      <ol class="steps">
+        <li>Prepare your details: <b>Order ID</b>, <b>payment reference/UTR</b>, Player ID & Zone/Server ID, purchase time, and a brief description.</li>
+        <li>Contact us via WhatsApp or Email (below) within <b>24 hours</b> of the issue.</li>
+        <li>Our team will verify with payment records and the game provider logs.</li>
+        <li>If eligible, we’ll process a refund or reversal. Otherwise, we’ll provide the proof/status of delivery.</li>
+      </ol>
+      <p class="muted">Refunds (when approved) typically reflect within <b>3–7 business days</b> depending on your payment provider/bank.</p>
+      <div class="contact">
+        <a class="btn btn-wa" href="https://wa.me/918787550589" target="_blank" rel="noopener">WhatsApp Support</a>
+        <a class="btn btn-mail" href="mailto:rinstoreofficiall@gmail.com">Email Support</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Proof of Delivery</h2>
+      <p>For every completed order we maintain internal logs (time, product, Player ID, provider response). On request, we can share <b>delivery confirmation evidence</b> with sensitive data redacted.</p>
+    </div>
+
+    <div class="card">
+      <h2>Chargebacks & Fraud</h2>
+      <p>Unauthorized chargebacks after successful delivery may result in account restriction and blacklisting. We recommend contacting us first to resolve any issue quickly and fairly.</p>
+    </div>
+
+    <div class="card">
+      <h2>Updates to this Policy</h2>
+      <p>We may revise this policy to reflect changes in our processes or provider requirements. The latest version will always be available on this page.</p>
+    </div>
+
+    <footer>
+      © 2025 Rin Store Official • Refund Policy
+    </footer>
+  </div>
+</body>
+</html>

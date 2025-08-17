@@ -44,7 +44,8 @@ h1 {
 }
 
 .game-info {
-  padding: 16px;
+  padding: 20px 50px;
+  margin: -30px;
 }
 
 .input-section {

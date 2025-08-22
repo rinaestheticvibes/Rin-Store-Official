@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Genshin Impact | Rin Store Official</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mlbb.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDVWGZKCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTDVWGZKCV');
+</script>
+</head>
+<body>
+    
+    <!-- Back Button -->
+  <div class="topbar">
+    <button class="back-btn" onclick="location.href='index.html'">&larr;</button>
+    <h1>Genshin Impact</h1>
+    </div>
+
+  <!-- Game Header -->
+  <div class="game-header">
+    <img src="Images/genshin-impact-banner.jpg" alt="MLBB Banner" class="game-banner">
+    <div class="game-info">
+      <h3>Genshin Impact</h3>
+      <p>Top-up Genesis Crystal instantly with your Player ID & Zone ID</p>
+    </div>
+  </div>
+
+
+  <!-- Player Input Section -->
+  <div class="input-section">
+  <div class="label-row">
+    <label for="playerId">Player UID</label>
+    <button class="info-btn" onclick="showGuide()">?</button>
+  </div>
+  <input type="number" id="playerId" placeholder="UID Number" class="input">
+  <small id="error-player" class="error-text"></small>
+
+  <label for="serverId">Server</label>
+  <input type="text" id="serverId" placeholder="America. Europe. Asia. TW/HK/MO" class="input">
+  <small id="error-server" class="error-text"></small>
+
+  <label for="ign">In-Game Name</label>
+  <input type="text" id="ign" name="ign" placeholder="Enter IGN (optional)" class="input">
+</div>
+
+<!-- Guide Image Modal -->
+<div class="modal-overlay" onclick="hideGuide()" id="guideModal">
+  <img src="Images/genshin-help.jpg" alt="Guide" class="guide-image">
+</div>
+
+  <!-- Diamond Package Selection -->
+  <div class="diamond-card-grid">
+      <small id="error-diamond" class="error-text"></small>
+      
+  <div class="diamond-card" data-amount="60" data-price="75">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Genesis Crystal 1.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">60 Genesis Crystal</div>
+      <div class="diamond-bonus">(60 + 0 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹80</span>
+        <span class="new-price">₹75</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="330" data-price="355">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Genesis Crystal 2.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">330 Genesis Crystal</div>
+      <div class="diamond-bonus">(300 + 30 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹360</span>
+        <span class="new-price">₹355</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="390" data-price="360">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Welkin Moon.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">Blessing of the Welkin Moon</div>
+      <div class="diamond-bonus">(90 + 300 Crystal)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹370</span>
+        <span class="new-price">₹360</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1090" data-price="1125">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Genesis Crystal 3.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1090 Genesis Crystal</div>
+      <div class="diamond-bonus">(980 + 110 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1135</span>
+        <span class="new-price">₹1125</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="2240" data-price="2360">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Genesis Crystal 4.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">2240 Genesis Crystal</div>
+      <div class="diamond-bonus">(1980 + 260 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹2370</span>
+        <span class="new-price">₹2360</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="3880" data-price="3600">
+    <span class="discount-label">99%</span>
+    <img src="Images/Genshin Genesis Crystal 5.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">3880 Genesis Crystal</div>
+      <div class="diamond-bonus">(3280 + 600 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹3620</span>
+        <span class="new-price">₹3600</span>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+  <!-- Payment Button -->
+  <div class="pay-button">
+    <button id="proceedBtn">Continue to Payment</button>
+  </div>
+  
+  <!-- Confirmation Popup -->
+<div class="confirm-popup-overlay" id="confirmPopup">
+  <div class="confirm-popup">
+    <h3>Confirm Your Order</h3>
+    <p><strong>Player UID:</strong> <span id="popup-playerId"></span></p>
+    <p><strong>Server:</strong> <span id="popup-serverId"></span></p>
+    <p><strong>In-Game Name:</strong> <span id="popup-ign"></span></p>
+    <p><strong>Genesis Crystal:</strong> <span id="popup-diamond"></span></p>
+    <p><strong>Price:</strong> ₹<span id="popup-price"></span></p>
+
+    <div class="popup-buttons">
+      <button class="cancel" onclick="hideConfirm()">Cancel</button>
+      <button class="confirm" onclick="confirmOrder()">OK</button>
+    </div>
+  </div>
+</div>
+
+  <script src="genshin.js">></script>
+</body>
+</html>

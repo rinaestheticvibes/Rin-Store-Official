@@ -115,7 +115,7 @@ const installBtn = document.createElement("button");
 installBtn.innerText = "📲 Install Rin Store";
 installBtn.style.cssText = `
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 20px;

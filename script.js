@@ -147,28 +147,61 @@ installBtn.addEventListener("click", async () => {
   }
 });
 
-// Target all product links
-document.querySelectorAll(".games").forEach(link => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault(); // stop instant navigation
+// Loader helpers
+function showLoader() {
+  const el = document.getElementById('loader');
+  if (el) el.style.display = 'flex';
+}
+function hideLoader() {
+  const el = document.getElementById('loader');
+  if (el) el.style.display = 'none';
+}
 
-    const loader = document.getElementById("loader");
-    loader.style.display = "flex";
+// Always hide loader when page is shown (incl. back/forward cache)
+window.addEventListener('pageshow', hideLoader);
 
-    // Redirect after 1 sec
-    setTimeout(() => {
-      try {
-        window.location.href = this.href;
-      } catch (error) {
-        // If navigation fails, hide loader again
-        loader.style.display = "none";
-        console.error("Navigation failed:", error);
-      }
-    }, 1000);
+// Attach to product links
+document.querySelectorAll('.games').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
 
-    // Safety timeout: auto-hide loader if nothing happens in 3s
-    setTimeout(() => {
-      loader.style.display = "none";
+    const target = this.href;
+    showLoader();
+
+    let navigated = false;
+    const onNav = () => { navigated = true; cleanup(); };
+    const cleanup = () => {
+      window.removeEventListener('pagehide', onNav);
+      window.removeEventListener('beforeunload', onNav);
+      document.removeEventListener('visibilitychange', onVis);
+      clearTimeout(safetyTimer);
+      clearTimeout(delayedGo);
+    };
+    const onVis = () => {
+      // If page is hidden, navigation started
+      if (document.visibilityState === 'hidden') onNav();
+    };
+
+    // Mark as navigating if the page is leaving
+    window.addEventListener('pagehide', onNav, { once: true });
+    window.addEventListener('beforeunload', onNav, { once: true });
+    document.addEventListener('visibilitychange', onVis);
+
+    // Safety: hide loader if nothing happens within 6s
+    const safetyTimer = setTimeout(() => {
+      if (!navigated) hideLoader();
+      cleanup();
     }, 3000);
+
+    // Go after 1.5s (your UX delay)
+    const delayedGo = setTimeout(() => {
+      // If somehow pointing to same URL, cancel
+      if (window.location.href === target) {
+        hideLoader();
+        cleanup();
+        return;
+      }
+      window.location.assign(target);
+    }, 1000);
   });
 });

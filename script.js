@@ -146,3 +146,29 @@ installBtn.addEventListener("click", async () => {
     deferredPrompt = null;
   }
 });
+
+// Target all product links
+document.querySelectorAll(".games").forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); // stop instant navigation
+
+    const loader = document.getElementById("loader");
+    loader.style.display = "flex";
+
+    // Redirect after 1 sec
+    setTimeout(() => {
+      try {
+        window.location.href = this.href;
+      } catch (error) {
+        // If navigation fails, hide loader again
+        loader.style.display = "none";
+        console.error("Navigation failed:", error);
+      }
+    }, 1000);
+
+    // Safety timeout: auto-hide loader if nothing happens in 3s
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 3000);
+  });
+});

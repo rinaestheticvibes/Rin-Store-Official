@@ -26,15 +26,20 @@ body {
 }
 
 .login-btn {
-  background-color: #007bff;
+  background-color: #ff001f71;
   color: white;
   padding: 8px 16px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: darkgrey;
+    color: black;
 }
 
 .notify-icon {

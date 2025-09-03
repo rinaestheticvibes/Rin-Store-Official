@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Ches: Go Go | Rin Store Official</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mcgg.css">
+</head>
+<body>
+    
+    <!-- Back Button -->
+  <div class="topbar">
+    <button class="back-btn" onclick="location.href='index.html'">&larr;</button>
+    <h1>Magic Chess: Go Go</h1>
+    </div>
+
+  <!-- Game Header -->
+  <div class="game-header">
+    <img src="Images/mcgg-banner.jpg" alt="MCGG Banner" class="game-banner">
+    <div class="game-info">
+      <h3>Magic Chess: Go Go</h3>
+      <p>Top-up diamonds instantly with your Player ID & Zone ID</p>
+    </div>
+  </div>
+
+
+  <!-- Player Input Section -->
+  <div class="input-section">
+  <div class="label-row">
+    <label for="playerId">Player ID</label>
+    <button class="info-btn" onclick="showGuide()">?</button>
+  </div>
+  <input type="number" id="playerId" placeholder="Enter your ID" class="input">
+  <small id="error-player" class="error-text"></small>
+
+  <label for="serverId">Server ID</label>
+  <input type="number" id="serverId" placeholder="Enter your Zone ID" class="input">
+  <small id="error-server" class="error-text"></small>
+
+  <label for="ign">In-Game Name</label>
+  <input type="text" id="ign" name="ign" placeholder="Enter IGN (optional)" class="input">
+  <label for="introduction" class="introduction">Double diamond packs are <span>First Time Purchase</span> only. You don't receive bonus after 1x Purchase</label>
+</div>
+
+<!-- Guide Image Modal -->
+<div class="modal-overlay" onclick="hideGuide()" id="guideModal">
+  <img src="Images/help-id.png" alt="Guide" class="guide-image">
+</div>
+
+  <!-- Diamond Package Selection -->
+  <div class="diamond-card-grid">
+      <small id="error-diamond" class="error-text"></small>
+      
+  <div class="diamond-card" data-amount="5" data-price="14">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond1.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">5 Diamonds</div>
+      <div class="diamond-bonus">(5 + 0 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹15</span>
+        <span class="new-price">₹14</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="11" data-price="20">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond1.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">11 Diamonds</div>
+      <div class="diamond-bonus">(10 + 1 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹22</span>
+        <span class="new-price">₹20</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="22" data-price="35">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond2.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">22 Diamonds</div>
+      <div class="diamond-bonus">(18 + 4 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹40</span>
+        <span class="new-price">₹35</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="56" data-price="90">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond3.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">56 Diamonds</div>
+      <div class="diamond-bonus">(50 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹95</span>
+        <span class="new-price">₹80</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="86" data-price="125">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond4.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">86 Diamonds</div>
+      <div class="diamond-bonus">(80 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹130</span>
+        <span class="new-price">₹120</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="Weekly" data-price="175">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-weekly.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">Weekly Pass</div>
+      <div class="diamond-bonus">(80 + 140 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹180</span>
+        <span class="new-price">₹175</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="172" data-price="230">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond5.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">172 Diamonds</div>
+      <div class="diamond-bonus">(169 + 6 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹240</span>
+        <span class="new-price">₹230</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="257" data-price="345">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond6.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">257 Diamonds</div>
+      <div class="diamond-bonus">(250 + 7 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹355</span>
+        <span class="new-price">₹345</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="344" data-price="450">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond7.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">344 Diamonds</div>
+      <div class="diamond-bonus">(340 + 4 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹465</span>
+        <span class="new-price">₹455</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="516" data-price="650">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond8.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">516 Diamonds</div>
+      <div class="diamond-bonus">(500 + 14 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹670</span>
+        <span class="new-price">₹635</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="706" data-price="875">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond9.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">706 Diamonds</div>
+      <div class="diamond-bonus">(625 + 81 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹910</span>
+        <span class="new-price">₹895</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1346" data-price="1740">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond9.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1346 Diamonds</div>
+      <div class="diamond-bonus">(1250 + 162 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹1700</span>
+        <span class="new-price">₹1690</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1825" data-price="2070">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond9.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1825 Diamonds</div>
+      <div class="diamond-bonus">(1484 + 185 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹2100</span>
+        <span class="new-price">₹2060</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="2195" data-price="2540">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond10.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">2195 Diamonds</div>
+      <div class="diamond-bonus">(1860 + 335 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹2750</span>
+        <span class="new-price">₹2720</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diamond-card" data-amount="3688" data-price="2540">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond11.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">3688 Diamonds</div>
+      <div class="diamond-bonus">(3099 + 589 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹4480</span>
+        <span class="new-price">₹4430</span>
+      </div>
+    </div>
+  </div>
+  
+    <div class="diamond-card" data-amount="5532" data-price="2540">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-diamond11.webp" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">5532 Diamonds</div>
+      <div class="diamond-bonus">(4649 + 883 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹6590</span>
+        <span class="new-price">₹6570</span>
+      </div>
+    </div>
+  </div>
+
+<div class="diamond-card" data-amount="100" data-price="80">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-double-diamond.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">100 Double Diamonds</div>
+      <div class="diamond-bonus">(50 + 50 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹90</span>
+        <span class="new-price">₹80</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="300" data-price="220">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-double-diamond.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">300 Double Diamonds</div>
+      <div class="diamond-bonus">(150 + 150 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹230</span>
+        <span class="new-price">₹220</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="500" data-price="370">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-double-diamond.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">500 Double Diamonds</div>
+      <div class="diamond-bonus">(250 + 250 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹390</span>
+        <span class="new-price">₹370</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1000" data-price="735">
+    <span class="discount-label">99%</span>
+    <img src="Images/mcgg-double-diamond.png" alt="Diamond" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1000 Double Diamonds</div>
+      <div class="diamond-bonus">(500 + 500 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹770</span>
+        <span class="new-price">₹735</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Button -->
+  <div class="pay-button">
+    <button id="proceedBtn">Continue to Payment</button>
+  </div>
+  
+  <!-- Confirmation Popup -->
+<div class="confirm-popup-overlay" id="confirmPopup">
+  <div class="confirm-popup">
+    <h3>Confirm Your Order</h3>
+    <p><strong>Player ID:</strong> <span id="popup-playerId"></span></p>
+    <p><strong>Server ID:</strong> <span id="popup-serverId"></span></p>
+    <p><strong>In-Game Name:</strong> <span id="popup-ign"></span></p>
+    <p><strong>Diamond:</strong> <span id="popup-diamond"></span></p>
+    <p><strong>Price:</strong> ₹<span id="popup-price"></span></p>
+
+    <div class="popup-buttons">
+      <button class="cancel" onclick="hideConfirm()">Cancel</button>
+      <button class="confirm" onclick="confirmOrder()">OK</button>
+    </div>
+  </div>
+</div>
+
+  <script src="mcgg.js">></script>
+</body>
+</html>

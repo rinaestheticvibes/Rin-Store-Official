@@ -158,6 +158,10 @@ body {
   padding: 0 16px;
 }
 
+.game-grid a {
+  text-decoration: none;
+}
+
 .game-grid img {
   border-radius: 12px;
 }

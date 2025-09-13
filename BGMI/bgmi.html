@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BGMI | Rin Store Official</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bgmi.css">
+</head>
+<body>
+    
+    <!-- Back Button -->
+  <div class="topbar">
+    <button class="back-btn" onclick="location.href='index.html'">&larr;</button>
+    <h1>PUBG Mobile India (BGMI)</h1>
+    </div>
+
+  <!-- Game Header -->
+  <div class="game-header">
+    <img src="Images/bgmi-banner.jpg" alt="BGMI Banner" class="game-banner">
+    <div class="game-info">
+      <h3>PUBG Mobile [India Version]</h3>
+      <p>Top-up UC instantly with your Player ID</p>
+    </div>
+  </div>
+
+
+  <!-- Player Input Section -->
+  <div class="input-section">
+  <div class="label-row">
+    <label for="playerId">Player ID</label>
+    <button class="info-btn" onclick="showGuide()">?</button>
+  </div>
+  <input type="number" id="playerId" placeholder="Enter your ID" class="input">
+  <small id="error-player" class="error-text"></small>
+
+  
+  
+  <label for="ign">In-Game Name</label>
+  <input type="text" id="ign" name="ign" placeholder="Enter IGN (optional)" class="input">
+  <label class="introduction">BGMI UC recharged from Rin Store will take around <span>5min -1 hour.</span> Kindly contact the customer support at whatsapp if any delay.</label>
+</div>
+
+<!-- Guide Image Modal -->
+<div class="modal-overlay" onclick="hideGuide()" id="guideModal">
+  <img src="Images/help-id-pubg.png" alt="Guide" class="guide-image">
+</div>
+
+  <!-- Diamond Package Selection -->
+  <div class="diamond-card-grid">
+      <small id="error-diamond" class="error-text"></small>
+      
+  <div class="diamond-card" data-amount="60" data-price="80">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo1.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">60 UC</div>
+      <div class="diamond-bonus">(60+0 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹90</span>
+        <span class="new-price">₹80</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="325" data-price="380">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo1.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">325 UC</div>
+      <div class="diamond-bonus">(300+25 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹440</span>
+        <span class="new-price">₹380</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="660" data-price="750">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo2.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">660 UC</div>
+      <div class="diamond-bonus">(600+60 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹850</span>
+        <span class="new-price">₹750</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="1800" data-price="1870">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo3.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">1800 UC</div>
+      <div class="diamond-bonus">(1500+300 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">2120</span>
+        <span class="new-price">₹1870</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="3850" data-price="3720">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo4.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">3850 UC</div>
+      <div class="diamond-bonus">(3000+850 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹4200</span>
+        <span class="new-price">₹3720</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="diamond-card" data-amount="7500" data-price="3720">
+    <span class="discount-label">99%</span>
+    <img src="Images/bgmi-uc-logo4.png" alt="UC" class="diamond-img">
+    <div class="diamond-details">
+      <div class="diamond-title">7500 UC</div>
+      <div class="diamond-bonus">(6500+1000 Bonus)</div>
+      <div class="diamond-prices">
+        <span class="old-price">₹8000</span>
+        <span class="new-price">₹7340</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Payment Button -->
+  <div class="pay-button">
+    <button id="proceedBtn">Continue to Payment</button>
+  </div>
+  
+  <!-- Confirmation Popup -->
+<div class="confirm-popup-overlay" id="confirmPopup">
+  <div class="confirm-popup">
+    <h3>Confirm Your Order</h3>
+    <p><strong>Player ID:</strong> <span id="popup-playerId"></span></p>
+    
+    <p><strong>In-Game Name:</strong> <span id="popup-ign"></span></p>
+    <p><strong>UC Amount:</strong> <span id="popup-diamond"></span></p>
+    <p><strong>Price:</strong> ₹<span id="popup-price"></span></p>
+
+    <div class="popup-buttons">
+      <button class="cancel" onclick="hideConfirm()">Cancel</button>
+      <button class="confirm" onclick="confirmOrder()">OK</button>
+    </div>
+  </div>
+</div>
+
+  <script src="bgmi.js">></script>
+</body>
+</html>

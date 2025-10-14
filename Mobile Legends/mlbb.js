@@ -34,7 +34,7 @@ function showGuide() {
     price
   }).toString();
 
-  window.location.href = `payment.html?${query}`;
+  window.location.href = `mlbb-payment.html?${query}`;
 }
 
   const cards = document.querySelectorAll('.diamond-card');

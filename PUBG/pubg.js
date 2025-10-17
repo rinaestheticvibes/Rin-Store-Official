@@ -33,7 +33,7 @@ function showGuide() {
     price
   }).toString();
 
-  window.location.href = `pubgpay.html?${query}`;
+  window.location.href = `pubg-payment.html?${query}`;
 }
 
   const cards = document.querySelectorAll('.diamond-card');

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment | Rin Store Official</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDVWGZKCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTDVWGZKCV');
+</script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .payment-card {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .payment-card h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .user-info {
+      text-align: left;
+      font-size: 15px;
+      background: #fafafa;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 12px 0;
+      border-left: 4px solid #007bff;
+    }
+
+    .qr-img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      border: 2px solid #007bff;
+    }
+
+    .amount {
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .upi-id {
+      margin: 8px 0;
+      padding: 6px 10px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    button.copy-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+
+    input[type="file"] {
+      margin-top: 12px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .error-text {
+      color: red;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .timer {
+      margin-top: 14px;
+      font-size: 13px;
+      color: red;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      margin: 18px auto 0;
+      padding: 10px 18px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #previewImage {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-card">
+    <h2>Scan & Pay</h2>
+
+    <div class="user-info" id="userInfo">
+      <!-- Injected user info -->
+    </div>
+
+    <img src="Images/paytm-qr.jpg" class="qr-img" alt="Pay QR">
+    <div class="amount">Amount: ₹<span id="amountText">0</span></div>
+    <div class="upi-id" id="upiId">8787550589@ptaxis</div>
+    <button class="copy-btn" onclick="copyUPI(this)">Copy UPI ID</button>
+
+    <input type="file" id="paymentScreenshot" accept="image/*"/>
+    <img id="previewImage" style="display:none;" />
+    <div id="fileError" class="error-text"></div>
+
+    <div class="timer">
+      Payment expires in: <span id="countdown">10:00</span>
+    </div>
+
+    <a class="whatsapp-btn" id="whatsappBtn" href="#">Send to WhatsApp</a>
+  </div>
+
+  <script>
+    // Extract values from URL
+    const params = new URLSearchParams(window.location.search);
+    const playerId = params.get("playerId");
+
+    const ign = params.get("ign") || "Not Provided";
+    const diamond = params.get("diamond");
+    const price = params.get("price");
+
+    // Validate
+    if (playerId && diamond && price) {
+      document.getElementById("userInfo").innerHTML = `
+        <p><strong>Player ID:</strong> ${playerId}</p>
+        
+        <p><strong>IGN:</strong> ${ign}</p>
+        <p><strong>UC Amount:</strong> ${diamond}</p>
+        <p><strong>Price:</strong> ₹${price}</p>
+      `;
+      document.getElementById("amountText").innerText = price;
+    } else {
+      document.body.innerHTML = `
+        <p style="color:red; text-align:center;">❌ Missing payment info. 
+        <a href="index.html">Go back</a> and try again.</p>
+      `;
+      throw new Error("Missing payment info");
+    }
+
+    // UPI Copy
+    function copyUPI(btn) {
+      const upiText = document.getElementById("upiId").innerText;
+      navigator.clipboard.writeText(upiText).then(() => {
+        btn.innerText = "Copied";
+        setTimeout(() => {
+          btn.innerText = "Copy UPI ID";
+        }, 2000);
+      });
+    }
+
+    // Timer countdown
+    let timeLeft = 600;
+    const timerEl = document.getElementById("countdown");
+    const timer = setInterval(() => {
+      let min = Math.floor(timeLeft / 60);
+      let sec = timeLeft % 60;
+      timerEl.innerText = `${min}:${sec < 10 ? "0" + sec : sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timer);
+        timerEl.innerText = "Expired";
+        document.getElementById("whatsappBtn").innerText = "Time Expired";
+        document.getElementById("whatsappBtn").style.pointerEvents = "none";
+        document.getElementById("whatsappBtn").style.backgroundColor = "#ccc";
+      }
+    }, 1000);
+
+    // Preview screenshot
+    const fileInput = document.getElementById("paymentScreenshot");
+    const preview = document.getElementById("previewImage");
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (file) {
+        preview.style.display = "block";
+        preview.src = URL.createObjectURL(file);
+      } else {
+        preview.style.display = "none";
+      }
+    });
+
+    // WhatsApp button logic
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    whatsappBtn.addEventListener("click", (e) => {
+      const file = fileInput.files[0];
+
+      if (!file) {
+        e.preventDefault();
+        document.getElementById("fileError").innerText = "⚠️ Please upload payment screenshot before sending.";
+        return;
+      }
+
+      const fileName = file.name;
+      const msg = `🧾 *PUBG Mobile Global - Recharge Order* (Rin Store Official)\n\n` +
+                  `🎮 *Player ID:* ${playerId}\n`        +
+                  `👤 *IGN:* ${ign}\n` +
+                  `💎 *UC Amount:* ${diamond}\n` +
+                  `💰 *Amount:* ₹${price}\n\n` +
+                  `📎 Screenshot uploaded: *${fileName}*\n\n` +
+                  `📤 Please attach this image manually in WhatsApp.`;
+
+      const number = "918787550589";
+      whatsappBtn.href = `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
+    });
+  </script>
+
+</body>
+</html>
